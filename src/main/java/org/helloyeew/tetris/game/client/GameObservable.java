@@ -51,6 +51,7 @@ public class GameObservable extends Observable {
             while (true) {
                 if (this.isRunning) {
                     tick();
+                    System.out.println("Tick: " + tick);
                 }
                 try {
                     Thread.sleep(delayedTick);

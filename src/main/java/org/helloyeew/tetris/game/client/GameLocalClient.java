@@ -49,7 +49,7 @@ public class GameLocalClient extends JFrame implements Observer {
     /**
      * The game's observable for updating the game time
      */
-    private GameObservable observable;
+    public GameObservable observable;
 
     /**
      * Status text field at the right-top corner of the game window.
