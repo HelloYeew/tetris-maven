@@ -44,7 +44,7 @@ public class GameLocalClient extends JFrame implements Observer {
     /**
      * Show debug information.
      */
-    public Boolean DEBUG = false;
+    public Boolean DEBUG = true;
 
     /**
      * The game's observable for updating the game time
@@ -60,6 +60,11 @@ public class GameLocalClient extends JFrame implements Observer {
      * Debug window that will appear only when <code>DEBUG</code> is true.
      */
     private LocalDebugWindow debugWindow;
+
+    /**
+     * Disable some in-game function that make some test broken.
+     */
+    public boolean isTestEnvironment = false;
 
     /**
      * Create a new game with necessary components
@@ -217,7 +222,7 @@ public class GameLocalClient extends JFrame implements Observer {
             debugWindow.update();
         }
         // If the game window loses focus, pause the game
-        if (!isFocused() && observable.getTick() > 1) {
+        if (!isFocused() && observable.getTick() > 1 && !isTestEnvironment) {
             pause();
         }
         playfieldPlayer1.isReceivedInput = false;
